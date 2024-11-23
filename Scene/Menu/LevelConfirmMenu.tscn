@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv4oxnocqv8jj"]
+
+[ext_resource type="PackedScene" uid="uid://dspunufbyjro8" path="res://Scene/Menu/FloatingMenu.tscn" id="1_ga0el"]
+[ext_resource type="Script" path="res://Script/Scene/Menu/LevelConfirmMenu.gd" id="2_rkia1"]
+[ext_resource type="Script" path="res://Script/Scene/UI/DynFontSizeLabel.gd" id="3_bmloc"]
+[ext_resource type="Script" path="res://Script/Scene/UI/DynFontSizeButton.gd" id="4_65jv0"]
+
+[node name="LevelConfirmMenu" instance=ExtResource("1_ga0el")]
+visible = true
+color = Color(0.129412, 0.129412, 0.129412, 0.862745)
+script = ExtResource("2_rkia1")
+
+[node name="Title" type="Label" parent="." index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.114604
+anchor_top = 0.06
+anchor_right = 0.8965
+anchor_bottom = 0.185617
+offset_left = -0.0240021
+offset_top = 0.119999
+offset_right = 0.231934
+offset_bottom = -0.280014
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_bmloc")
+metadata/_edit_use_anchors_ = true
+
+[node name="btnTrain" type="Button" parent="." index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.229097
+anchor_top = 0.270432
+anchor_right = 0.771174
+anchor_bottom = 0.37916
+offset_left = 0.0800018
+offset_top = -0.240005
+offset_right = -0.392014
+offset_bottom = 0.304001
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../btnCancel")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../btnRace")
+focus_next = NodePath("../btnRace")
+focus_previous = NodePath("../btnCancel")
+theme_override_font_sizes/font_size = 25
+text = "TRAIN"
+script = ExtResource("4_65jv0")
+metadata/_edit_use_anchors_ = true
+
+[node name="btnRace" type="Button" parent="." index="2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.229097
+anchor_top = 0.517346
+anchor_right = 0.771174
+anchor_bottom = 0.626074
+offset_left = 0.0800018
+offset_top = -0.240005
+offset_right = -0.392014
+offset_bottom = 0.304001
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../btnTrain")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../btnCancel")
+focus_next = NodePath("../btnCancel")
+focus_previous = NodePath("../btnTrain")
+theme_override_font_sizes/font_size = 25
+text = "RACE"
+script = ExtResource("4_65jv0")
+metadata/_edit_use_anchors_ = true
+
+[node name="btnCancel" type="Button" parent="." index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.229097
+anchor_top = 0.753457
+anchor_right = 0.771174
+anchor_bottom = 0.862185
+offset_left = 0.0800018
+offset_top = -0.240005
+offset_right = -0.392014
+offset_bottom = 0.304001
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../btnRace")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../btnTrain")
+focus_next = NodePath("../btnTrain")
+focus_previous = NodePath("../btnRace")
+theme_override_font_sizes/font_size = 25
+text = "CANCEL"
+script = ExtResource("4_65jv0")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="btnTrain" to="." method="_on_btn_train_pressed"]
+[connection signal="pressed" from="btnRace" to="." method="_on_btn_race_pressed"]
+[connection signal="pressed" from="btnCancel" to="." method="_on_btn_cancel_pressed"]

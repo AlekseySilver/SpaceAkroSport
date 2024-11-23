@@ -1,0 +1,115 @@
+[gd_scene load_steps=6 format=3 uid="uid://bavh44d60nofd"]
+
+[ext_resource type="PackedScene" uid="uid://c2k0c32l6fn8h" path="res://Scene/Menu/BackMenu.tscn" id="1_qu8ig"]
+[ext_resource type="Script" path="res://Script/Scene/Menu/LevelSelectMenu.gd" id="2_0601r"]
+[ext_resource type="Script" path="res://Script/Scene/UI/DynFontSizeButton.gd" id="3_cg8ov"]
+[ext_resource type="Script" path="res://Script/Scene/UI/DynFontSizeRich.gd" id="4_to4xg"]
+[ext_resource type="PackedScene" uid="uid://cv4oxnocqv8jj" path="res://Scene/Menu/LevelConfirmMenu.tscn" id="5_d0pc3"]
+
+[node name="LevelSelect" instance=ExtResource("1_qu8ig")]
+script = ExtResource("2_0601r")
+
+[node name="Title" parent="UI" index="0"]
+text = "LEVEL_SELECT"
+
+[node name="Button01" type="Button" parent="UI" index="2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0559514
+anchor_top = 0.296753
+anchor_right = 0.277569
+anchor_bottom = 0.494284
+offset_left = -0.456009
+offset_top = -0.296005
+offset_right = 0.23996
+offset_bottom = -0.296021
+text = "TUTORIAL"
+script = ExtResource("3_cg8ov")
+font_scale = 0.2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button02" type="Button" parent="UI" index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.333729
+anchor_top = 0.296753
+anchor_right = 0.555347
+anchor_bottom = 0.494284
+offset_left = -0.456009
+offset_top = -0.296005
+offset_right = 0.23996
+offset_bottom = -0.296021
+text = "GYM"
+script = ExtResource("3_cg8ov")
+font_scale = 0.2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button03" type="Button" parent="UI" index="4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.611507
+anchor_top = 0.296753
+anchor_right = 0.833125
+anchor_bottom = 0.494284
+offset_left = -0.456009
+offset_top = -0.296005
+offset_right = 0.23996
+offset_bottom = -0.296021
+text = "BATUT"
+script = ExtResource("3_cg8ov")
+font_scale = 0.2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button04" type="Button" parent="UI" index="5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0559514
+anchor_top = 0.593049
+anchor_right = 0.277569
+anchor_bottom = 0.79058
+offset_left = -0.456009
+offset_top = -0.296005
+offset_right = 0.23996
+offset_bottom = -0.296021
+text = "STAIRS"
+script = ExtResource("3_cg8ov")
+font_scale = 0.2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button05" type="Button" parent="UI" index="6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.333729
+anchor_top = 0.593049
+anchor_right = 0.555347
+anchor_bottom = 0.79058
+offset_left = -0.456009
+offset_top = -0.296005
+offset_right = 0.23996
+offset_bottom = -0.296021
+text = "BYPASS"
+script = ExtResource("3_cg8ov")
+font_scale = 0.2
+metadata/_edit_use_anchors_ = true
+
+[node name="FIRST_PLAY_TIP" type="RichTextLabel" parent="UI" index="7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07
+anchor_top = 0.164
+anchor_right = 0.944118
+anchor_bottom = 0.222222
+offset_left = 0.360001
+offset_top = -0.272003
+offset_right = 0.375916
+bbcode_enabled = true
+text = "FIRST_PLAY_TIP"
+script = ExtResource("4_to4xg")
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelConfirmMenu" parent="UI" index="8" instance=ExtResource("5_d0pc3")]
+visible = false
+layout_mode = 1
+
+[node name="Fader" parent="." index="1"]
+visible = true

@@ -1,0 +1,548 @@
+[gd_scene load_steps=28 format=3 uid="uid://cekgm3h6ojj56"]
+
+[ext_resource type="Script" path="res://Script/Person/Person.gd" id="1_r0s5f"]
+[ext_resource type="Texture2D" uid="uid://ci71o3t8fjlvr" path="res://icon.svg" id="2_adwbc"]
+[ext_resource type="Script" path="res://Script/Person/GrabManager.gd" id="2_d6rpi"]
+[ext_resource type="Script" path="res://Script/Person/PersonPoses.gd" id="2_mi32w"]
+[ext_resource type="Script" path="res://Script/Person/PersonBody.gd" id="3_beudy"]
+[ext_resource type="Script" path="res://Script/Person/PersonPose.gd" id="3_hj4ce"]
+[ext_resource type="Script" path="res://Script/Person/PersonJoint.gd" id="4_tfihs"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iubbj"]
+height = 2.21172
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lqa3j"]
+albedo_texture = ExtResource("2_adwbc")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_w4e1u"]
+height = 2.212
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1ffe5"]
+radius = 0.41028
+
+[sub_resource type="SphereMesh" id="SphereMesh_jjff3"]
+radius = 0.41
+height = 0.82
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lg171"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qqn51"]
+radius = 0.267505
+height = 1.50135
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3r48"]
+albedo_color = Color(1.3236e-06, 0.471721, 0.266791, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_q1p4g"]
+radius = 0.3
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uadeu"]
+albedo_color = Color(0.0733771, 0.232514, 1, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pduqa"]
+radius = 0.20824
+height = 1.50721
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5rb58"]
+size = Vector3(0.36377, 0.228699, 1.00305)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dm863"]
+albedo_color = Color(0.957636, 1.08775e-05, 0.620332, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tsevu"]
+radius = 0.3
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dc73c"]
+albedo_color = Color(0.608122, 0.551551, 0.149404, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eqtvh"]
+radius = 0.218542
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ydpdh"]
+albedo_color = Color(1.3236e-06, 0.471721, 0.266791, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ad84v"]
+radius = 0.18
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tmwe7"]
+albedo_color = Color(1.3236e-06, 0.471721, 0.266791, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7isc"]
+albedo_color = Color(1.3236e-06, 0.471721, 0.266791, 1)
+
+[node name="PersonBase" type="Node3D"]
+script = ExtResource("1_r0s5f")
+IMPULSE_MASK = 8
+
+[node name="GrabManager" type="Node" parent="."]
+script = ExtResource("2_d6rpi")
+
+[node name="Poses" type="Node" parent="."]
+script = ExtResource("2_mi32w")
+
+[node name="straigth" type="Node" parent="Poses"]
+script = ExtResource("3_hj4ce")
+bones = {
+"Body": 0.0,
+"Head": 0.5,
+"LCalf": 0.0,
+"LFArm": 0.0,
+"LThigh0": 0.8,
+"LThigh1": 1.0,
+"LUArm0": 0.0,
+"LUArm1": 1.0,
+"RCalf": 0.0,
+"RFArm": 0.0,
+"RThigh0": 0.8,
+"RThigh1": 1.0,
+"RUArm0": 0.0,
+"RUArm1": 1.0
+}
+
+[node name="group" type="Node" parent="Poses"]
+script = ExtResource("3_hj4ce")
+bones = {
+"Body": 1.0,
+"Head": 1.0,
+"LCalf": 1.0,
+"LFArm": 1.0,
+"LThigh0": 0.0,
+"LThigh1": 1.0,
+"LUArm0": 0.5,
+"LUArm1": 1.0,
+"RCalf": 1.0,
+"RFArm": 1.0,
+"RThigh0": 0.0,
+"RThigh1": 1.0,
+"RUArm0": 0.5,
+"RUArm1": 1.0
+}
+
+[node name="method" type="Node" parent="Poses"]
+script = ExtResource("3_hj4ce")
+bones = {
+"Body": 0.0,
+"Head": 0.0,
+"LCalf": 1.0,
+"LFArm": 0.5,
+"LThigh0": 1.0,
+"LThigh1": 1.0,
+"LUArm0": 1.0,
+"LUArm1": 1.0,
+"RCalf": 1.0,
+"RFArm": 0.5,
+"RThigh0": 1.0,
+"RThigh1": 1.0,
+"RUArm0": 1.0,
+"RUArm1": 1.0
+}
+
+[node name="star" type="Node" parent="Poses"]
+script = ExtResource("3_hj4ce")
+bones = {
+"Body": 0.0,
+"Head": 0.5,
+"LCalf": 0.0,
+"LFArm": 0.0,
+"LThigh0": 0.8,
+"LThigh1": 0.5,
+"LUArm0": 0.0,
+"LUArm1": 0.5,
+"RCalf": 0.0,
+"RFArm": 0.0,
+"RThigh0": 0.8,
+"RThigh1": 0.5,
+"RUArm0": 0.0,
+"RUArm1": 0.5
+}
+
+[node name="Body" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.46634, 0)
+collision_layer = 16
+collision_mask = 31
+axis_lock_linear_z = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("3_beudy")
+GROUND_MASK = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body"]
+shape = SubResource("CapsuleShape3D_iubbj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body"]
+visible = false
+material_override = SubResource("StandardMaterial3D_lqa3j")
+mesh = SubResource("CapsuleMesh_w4e1u")
+
+[node name="Head" type="RigidBody3D" parent="." node_paths=PackedStringArray("parent", "joint")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.95028, 0.0449684)
+collision_layer = 16
+collision_mask = 31
+axis_lock_linear_z = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("3_beudy")
+skel_bone_name = &"mixamorig7_Head"
+parent = NodePath("../Body")
+joint = NodePath("../J_Body_Head")
+GROUND_MASK = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head"]
+shape = SubResource("SphereShape3D_1ffe5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_lqa3j")
+mesh = SubResource("SphereMesh_jjff3")
+
+[node name="RThigh0" type="RigidBody3D" parent="." node_paths=PackedStringArray("joint")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.681787, 2.75341, 0.0305963)
+collision_layer = 0
+collision_mask = 19
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("3_beudy")
+joint = NodePath("../j_Body_RThigh0")
+GROUND_MASK = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RThigh0"]
+shape = SubResource("SphereShape3D_lg171")
+disabled = true
+
+[node name="LThigh0" type="RigidBody3D" parent="." node_paths=PackedStringArray("joint")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.682, 2.753, 0.031)
+collision_layer = 0
+collision_mask = 19
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("3_beudy")
+joint = NodePath("../J_Body_LThigh0")
+GROUND_MASK = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LThigh0"]
+shape = SubResource("SphereShape3D_lg171")
+disabled = true
+
+[node name="RThigh1" type="RigidBody3D" parent="." node_paths=PackedStringArray("parent", "joint")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.354325, 2.08571, 0.000100195)
+collision_layer = 16
+collision_mask = 31
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("3_beudy")
+skel_bone_name = &"mixamorig7_RightUpLeg"
+parent = NodePath("../Body")
+joint = NodePath("../J_RThigh0_RThigh1")
+GROUND_MASK = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RThigh1"]
+shape = SubResource("CapsuleShape3D_qqn51")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RThigh1"]
+visible = false
+material_override = SubResource("StandardMaterial3D_r3r48")
+mesh = SubResource("CapsuleMesh_q1p4g")
+
+[node name="LThigh1" type="RigidBody3D" parent="." node_paths=PackedStringArray("parent", "joint")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.354, 2.086, 0)
+collision_layer = 16
+collision_mask = 31
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("3_beudy")
+skel_bone_name = &"mixamorig7_LeftUpLeg"
+parent = NodePath("../Body")
+joint = NodePath("../J_LThigh0_LThigh1")
+GROUND_MASK = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LThigh1"]
+shape = SubResource("CapsuleShape3D_qqn51")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LThigh1"]
+visible = false
+material_override = SubResource("StandardMaterial3D_uadeu")
+mesh = SubResource("CapsuleMesh_q1p4g")
+
+[node name="RCalf" type="RigidBody3D" parent="." node_paths=PackedStringArray("parent", "joint")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.415501, 0.751224, -0.079532)
+collision_layer = 16
+collision_mask = 31
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("3_beudy")
+skel_bone_name = &"mixamorig7_RightLeg"
+parent = NodePath("../RThigh1")
+joint = NodePath("../J_RThigh1_RCalf")
+GROUND_MASK = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RCalf"]
+shape = SubResource("CapsuleShape3D_pduqa")
+
+[node name="Coll2" type="CollisionShape3D" parent="RCalf"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0710449, -0.637238, 0.215149)
+shape = SubResource("BoxShape3D_5rb58")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RCalf"]
+visible = false
+material_override = SubResource("StandardMaterial3D_dm863")
+mesh = SubResource("CapsuleMesh_tsevu")
+
+[node name="LCalf" type="RigidBody3D" parent="." node_paths=PackedStringArray("parent", "joint")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.416, 0.751, -0.08)
+collision_layer = 16
+collision_mask = 31
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("3_beudy")
+skel_bone_name = &"mixamorig7_LeftLeg"
+parent = NodePath("../LThigh1")
+joint = NodePath("../J_LThigh1_LCalf")
+GROUND_MASK = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LCalf"]
+shape = SubResource("CapsuleShape3D_pduqa")
+
+[node name="Coll2" type="CollisionShape3D" parent="LCalf"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0732534, -0.637238, 0.215149)
+shape = SubResource("BoxShape3D_5rb58")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LCalf"]
+visible = false
+material_override = SubResource("StandardMaterial3D_dc73c")
+mesh = SubResource("CapsuleMesh_tsevu")
+
+[node name="RUArm0" type="RigidBody3D" parent="." node_paths=PackedStringArray("joint")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, 4.226, -0.117)
+collision_layer = 0
+collision_mask = 19
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("3_beudy")
+joint = NodePath("../J_Body_RUArm0")
+GROUND_MASK = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RUArm0"]
+shape = SubResource("SphereShape3D_lg171")
+disabled = true
+
+[node name="LUArm0" type="RigidBody3D" parent="." node_paths=PackedStringArray("joint")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 4.226, -0.117)
+collision_layer = 0
+collision_mask = 19
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("3_beudy")
+joint = NodePath("../J_Body_LUArm0")
+GROUND_MASK = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LUArm0"]
+shape = SubResource("SphereShape3D_lg171")
+disabled = true
+
+[node name="RUArm1" type="RigidBody3D" parent="." node_paths=PackedStringArray("parent", "joint")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.937522, 4.22589, -0.117289)
+collision_layer = 16
+collision_mask = 31
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("3_beudy")
+skel_bone_name = &"mixamorig7_RightArm"
+parent = NodePath("../Body")
+joint = NodePath("../J_RUArm0_RUArm1")
+GROUND_MASK = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RUArm1"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_eqtvh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RUArm1"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_ydpdh")
+mesh = SubResource("CapsuleMesh_q1p4g")
+
+[node name="LUArm1" type="RigidBody3D" parent="." node_paths=PackedStringArray("parent", "joint")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.938, 4.226, -0.117)
+collision_layer = 16
+collision_mask = 31
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("3_beudy")
+skel_bone_name = &"mixamorig7_LeftArm"
+parent = NodePath("../Body")
+joint = NodePath("../J_LUArm0_LUArm1")
+GROUND_MASK = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LUArm1"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_eqtvh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LUArm1"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_ydpdh")
+mesh = SubResource("CapsuleMesh_q1p4g")
+
+[node name="RFArm" type="RigidBody3D" parent="." node_paths=PackedStringArray("parent", "joint")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7857, 4.20861, -0.115466)
+collision_layer = 16
+collision_mask = 31
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("3_beudy")
+skel_bone_name = &"mixamorig7_RightForeArm"
+parent = NodePath("../RUArm1")
+joint = NodePath("../J_RUArm1_RFArm")
+GROUND_MASK = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RFArm"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_ad84v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RFArm"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_tmwe7")
+mesh = SubResource("CapsuleMesh_q1p4g")
+
+[node name="GrabPoint" type="Node3D" parent="RFArm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.425, 0, -0.1)
+
+[node name="LFArm" type="RigidBody3D" parent="." node_paths=PackedStringArray("parent", "joint")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.786, 4.209, -0.115)
+collision_layer = 16
+collision_mask = 31
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("3_beudy")
+skel_bone_name = &"mixamorig7_LeftForeArm"
+parent = NodePath("../LUArm1")
+joint = NodePath("../J_LUArm1_LFArm")
+GROUND_MASK = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LFArm"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_ad84v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LFArm"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_m7isc")
+mesh = SubResource("CapsuleMesh_q1p4g")
+
+[node name="GrabPoint" type="Node3D" parent="LFArm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.425, 0, -0.1)
+
+[node name="J_Body_Head" type="JoltHingeJoint3D" parent="."]
+limit_enabled = true
+limit_upper = 0.523599
+limit_lower = -0.436332
+node_a = NodePath("../Body")
+node_b = NodePath("../Head")
+transform = Transform3D(0.000610904, 0, -1, 0, 1, 0, 1, 0, 0.000610904, -9.01794e-05, 4.66869, -0.0609027)
+script = ExtResource("4_tfihs")
+
+[node name="j_Body_RThigh0" type="JoltHingeJoint3D" parent="."]
+limit_enabled = true
+limit_upper = 0.523599
+limit_lower = -2.26893
+node_a = NodePath("../Body")
+node_b = NodePath("../RThigh0")
+transform = Transform3D(0.000610904, 0, -1, 0, 1, 0, 1, 0, 0.000610904, -0.681787, 2.75341, 0.0305963)
+script = ExtResource("4_tfihs")
+
+[node name="J_Body_LThigh0" type="JoltHingeJoint3D" parent="."]
+limit_enabled = true
+limit_upper = 0.523599
+limit_lower = -2.26893
+node_a = NodePath("../Body")
+node_b = NodePath("../LThigh0")
+transform = Transform3D(0.000610904, 0, -1, 0, 1, 0, 1, 0, 0.000610904, 0.682, 2.753, 0.031)
+script = ExtResource("4_tfihs")
+
+[node name="J_RThigh0_RThigh1" type="JoltHingeJoint3D" parent="."]
+limit_enabled = true
+limit_lower = -1.39626
+node_a = NodePath("../RThigh0")
+node_b = NodePath("../RThigh1")
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.305154, 2.75341, 0.0305963)
+script = ExtResource("4_tfihs")
+
+[node name="J_LThigh0_LThigh1" type="JoltHingeJoint3D" parent="."]
+limit_enabled = true
+limit_lower = -1.39626
+node_a = NodePath("../LThigh0")
+node_b = NodePath("../LThigh1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.304974, 2.75341, 0.0321834)
+script = ExtResource("4_tfihs")
+
+[node name="J_RThigh1_RCalf" type="JoltHingeJoint3D" parent="."]
+limit_enabled = true
+limit_upper = 2.26893
+node_a = NodePath("../RThigh1")
+node_b = NodePath("../RCalf")
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.386233, 1.51401, -0.0329928)
+script = ExtResource("4_tfihs")
+
+[node name="J_LThigh1_LCalf" type="JoltHingeJoint3D" parent="."]
+limit_enabled = true
+limit_upper = 2.26893
+node_a = NodePath("../LThigh1")
+node_b = NodePath("../LCalf")
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.386052, 1.51401, -0.0427679)
+script = ExtResource("4_tfihs")
+
+[node name="J_Body_RUArm0" type="JoltHingeJoint3D" parent="."]
+limit_enabled = true
+limit_upper = 1.5708
+limit_lower = -2.96706
+node_a = NodePath("../Body")
+node_b = NodePath("../RUArm0")
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.35, 4.286, -0.092)
+script = ExtResource("4_tfihs")
+
+[node name="J_Body_LUArm0" type="JoltHingeJoint3D" parent="."]
+limit_enabled = true
+limit_upper = 1.5708
+limit_lower = -2.96706
+node_a = NodePath("../Body")
+node_b = NodePath("../LUArm0")
+transform = Transform3D(0.000610904, 0, -1, 0, 1, 0, 1, 0, 0.000610904, 0.35, 4.286, -0.092)
+script = ExtResource("4_tfihs")
+
+[node name="J_RUArm0_RUArm1" type="JoltHingeJoint3D" parent="."]
+limit_enabled = true
+limit_upper = 1.5708
+node_a = NodePath("../RUArm0")
+node_b = NodePath("../RUArm1")
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.67037, 4.28632, -0.0915862)
+script = ExtResource("4_tfihs")
+
+[node name="J_LUArm0_LUArm1" type="JoltHingeJoint3D" parent="."]
+limit_enabled = true
+limit_upper = 1.5708
+node_a = NodePath("../LUArm0")
+node_b = NodePath("../LUArm1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.67019, 4.28633, -0.0914184)
+script = ExtResource("4_tfihs")
+
+[node name="J_RUArm1_RFArm" type="JoltHingeJoint3D" parent="."]
+limit_enabled = true
+limit_upper = 1.5708
+node_a = NodePath("../RUArm1")
+node_b = NodePath("../RFArm")
+transform = Transform3D(0.999999, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.38097, 4.24347, -0.126742)
+script = ExtResource("4_tfihs")
+
+[node name="J_LUArm1_LFArm" type="JoltHingeJoint3D" parent="."]
+limit_enabled = true
+limit_upper = 1.5708
+node_a = NodePath("../LUArm1")
+node_b = NodePath("../LFArm")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.38079, 4.24347, -0.127279)
+script = ExtResource("4_tfihs")

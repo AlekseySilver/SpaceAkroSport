@@ -1,0 +1,136 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7q85e8rdt3hc"]
+
+[ext_resource type="Script" path="res://Script/Scene/Interactive/Batut.gd" id="1_4rw4k"]
+[ext_resource type="Script" path="res://Script/Scene/Interactive/BatutBody.gd" id="2_4hs7n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pj0jw"]
+size = Vector3(5, 5, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y44pj"]
+albedo_color = Color(1.46799e-06, 0.45746, 0.270738, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_638rc"]
+size = Vector3(5, 5, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y4rs5"]
+size = Vector3(7, 1.25, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1n6ax"]
+size = Vector3(5, 1.25, 10)
+
+[node name="Batut00" type="Node3D"]
+script = ExtResource("1_4rw4k")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 2.5, 0)
+collision_mask = 17
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_pj0jw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+material_override = SubResource("StandardMaterial3D_y44pj")
+mesh = SubResource("BoxMesh_638rc")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2.5, 0)
+collision_mask = 17
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+shape = SubResource("BoxShape3D_pj0jw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
+material_override = SubResource("StandardMaterial3D_y44pj")
+mesh = SubResource("BoxMesh_638rc")
+
+[node name="RigidBody3D1" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.84336, 4.42917, 0)
+collision_layer = 4
+collision_mask = 16
+mass = 0.1
+script = ExtResource("2_4hs7n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D1"]
+shape = SubResource("BoxShape3D_y4rs5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D1"]
+mesh = SubResource("BoxMesh_1n6ax")
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32272, 4.42917, 0)
+collision_layer = 4
+collision_mask = 16
+mass = 0.1
+script = ExtResource("2_4hs7n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2"]
+shape = SubResource("BoxShape3D_y4rs5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2"]
+mesh = SubResource("BoxMesh_1n6ax")
+
+[node name="RigidBody3D3" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.02853, 4.42917, 0)
+collision_layer = 4
+collision_mask = 16
+mass = 0.1
+script = ExtResource("2_4hs7n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3"]
+shape = SubResource("BoxShape3D_y4rs5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D3"]
+mesh = SubResource("BoxMesh_1n6ax")
+
+[node name="RigidBody3D4" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.64735, 4.42917, 0)
+collision_layer = 4
+collision_mask = 16
+mass = 0.1
+script = ExtResource("2_4hs7n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D4"]
+shape = SubResource("BoxShape3D_y4rs5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D4"]
+mesh = SubResource("BoxMesh_1n6ax")
+
+[node name="Joint1" type="JoltGeneric6DOFJoint3D" parent="."]
+angular_limit_z/lower = -0.523599
+angular_motor_z/target_velocity = 0.872665
+angular_motor_z/max_torque = 1000.0
+node_a = NodePath("../StaticBody3D2")
+node_b = NodePath("../RigidBody3D1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.33437, 4.8747, 0)
+
+[node name="Joint2" type="JoltGeneric6DOFJoint3D" parent="."]
+angular_limit_z/lower = -0.523599
+angular_motor_z/target_velocity = 0.872665
+angular_motor_z/max_torque = 1000.0
+node_a = NodePath("../RigidBody3D1")
+node_b = NodePath("../RigidBody3D2")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.59864, 4.8747, 0)
+
+[node name="Joint3" type="JoltGeneric6DOFJoint3D" parent="."]
+angular_limit_z/lower = -0.523599
+angular_motor_z/target_velocity = 0.872665
+angular_motor_z/max_torque = 1000.0
+node_a = NodePath("../RigidBody3D2")
+node_b = NodePath("../RigidBody3D3")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.208584, 4.8747, 0)
+
+[node name="Joint4" type="JoltGeneric6DOFJoint3D" parent="."]
+angular_limit_z/lower = -0.523599
+angular_motor_z/target_velocity = 0.872665
+angular_motor_z/max_torque = 1000.0
+node_a = NodePath("../RigidBody3D3")
+node_b = NodePath("../RigidBody3D4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.35431, 4.8747, 0)
+
+[node name="Joint5" type="JoltGeneric6DOFJoint3D" parent="."]
+angular_limit_z/lower = -0.523599
+angular_motor_z/target_velocity = 0.872665
+angular_motor_z/max_torque = 1000.0
+node_a = NodePath("../RigidBody3D4")
+node_b = NodePath("../StaticBody3D3")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.00362, 4.8747, 0)

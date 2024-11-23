@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn7ym5iiycsec"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tv2qj"]
+radius = 0.25
+height = 10.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_n1768"]
+top_radius = 0.15
+bottom_radius = 0.15
+height = 10.0
+
+[node name="GrabBar00" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.62065, 30.283, 0)
+collision_layer = 2
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_tv2qj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_n1768")

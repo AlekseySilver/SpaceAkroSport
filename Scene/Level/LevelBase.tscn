@@ -1,0 +1,228 @@
+[gd_scene load_steps=15 format=3 uid="uid://d0bgecqs6w12k"]
+
+[ext_resource type="PackedScene" uid="uid://c4hi0ylrwypj5" path="res://Scene/ScreenWithFader.tscn" id="1_mp27r"]
+[ext_resource type="Script" path="res://Script/Scene/Level/LevelBase.gd" id="2_6a2bb"]
+[ext_resource type="Script" path="res://Script/Camera.gd" id="3_6v1jp"]
+[ext_resource type="Texture2D" uid="uid://c7o812tcjrj1r" path="res://textures/blocks.png" id="3_kvfl1"]
+[ext_resource type="PackedScene" uid="uid://cfixqrex7lhje" path="res://Scene/Menu/PauseMenu.tscn" id="4_wdu51"]
+[ext_resource type="Script" path="res://Script/Scene/UI/DynFontSizeRich.gd" id="4_y0pxw"]
+[ext_resource type="Script" path="res://Script/Scene/Level/DebugLabel.gd" id="6_as5bv"]
+[ext_resource type="PackedScene" uid="uid://yvqi13nnfsl5" path="res://Scene/Interactive/Finish.tscn" id="7_n1d6t"]
+[ext_resource type="Script" path="res://Script/PlayerController.gd" id="7_txdnh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byqtk"]
+atlas = ExtResource("3_kvfl1")
+region = Rect2(448, 64, 64, 64)
+
+[sub_resource type="Animation" id="Animation_y4nl5"]
+resource_name = "Cutscene"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Top:anchor_bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bottom:anchor_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+
+[sub_resource type="Animation" id="Animation_an3a0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Top:anchor_bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bottom:anchor_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5mege"]
+_data = {
+"Cutscene": SubResource("Animation_y4nl5"),
+"RESET": SubResource("Animation_an3a0")
+}
+
+[sub_resource type="Environment" id="Environment_w5hah"]
+ambient_light_source = 2
+ambient_light_color = Color(0.705882, 0.705882, 0.705882, 1)
+
+[node name="LevelBase" instance=ExtResource("1_mp27r")]
+script = ExtResource("2_6a2bb")
+
+[node name="UI" parent="." index="0"]
+mouse_filter = 2
+
+[node name="btnPause" type="Button" parent="UI" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.916583
+anchor_top = 0.0181235
+anchor_right = 0.990618
+anchor_bottom = 0.146123
+offset_left = 0.0960007
+offset_top = 0.255997
+offset_right = -0.192017
+offset_bottom = 0.311996
+focus_mode = 0
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Pause" type="TextureRect" parent="UI/btnPause" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_byqtk")
+expand_mode = 2
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="lblInfo" type="RichTextLabel" parent="UI" index="1"]
+auto_translate_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0555556
+anchor_top = 0.0123457
+anchor_right = 0.835347
+anchor_bottom = 0.136074
+offset_right = -0.32
+offset_bottom = -0.176003
+bbcode_enabled = true
+script = ExtResource("4_y0pxw")
+font_scale = 0.25
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseMenu" parent="." index="2" instance=ExtResource("4_wdu51")]
+visible = false
+layout_mode = 1
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Cutscene" type="Control" parent="." index="3"]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Top" type="ColorRect" parent="Cutscene" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.1
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Bottom" type="ColorRect" parent="Cutscene" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.9
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cutscene" index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_5mege")
+}
+
+[node name="DebugLabel" type="Label" parent="." index="4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.047
+anchor_top = 0.062
+anchor_right = 0.783
+anchor_bottom = 0.884
+offset_left = -0.144001
+offset_top = -0.176003
+offset_right = -0.0160522
+offset_bottom = 0.167969
+script = ExtResource("6_as5bv")
+metadata/_edit_use_anchors_ = true
+
+[node name="Root3D" type="WorldEnvironment" parent="." index="5"]
+environment = SubResource("Environment_w5hah")
+
+[node name="Camera3D" type="Camera3D" parent="Root3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.981922, 0.189284, 0, -0.189284, 0.981922, 0, 1, 3)
+script = ExtResource("3_6v1jp")
+offset = Vector3(0, 3, 20)
+blend = null
+
+[node name="PlayerStart" type="Node3D" parent="Root3D" index="1"]
+script = ExtResource("7_txdnh")
+
+[node name="Finish" parent="Root3D" index="2" instance=ExtResource("7_n1d6t")]
+
+[node name="DirLight" type="DirectionalLight3D" parent="Root3D" index="3"]
+transform = Transform3D(0.85093, 0.268059, -0.451732, 0, 0.859986, 0.510318, 0.525279, -0.434245, 0.731788, -6.24694, 6.3044, 0)
+light_bake_mode = 1
+
+[node name="LightmapGI" type="LightmapGI" parent="Root3D" index="4"]
+
+[connection signal="pressed" from="UI/btnPause" to="." method="_on_btn_pause_pressed"]

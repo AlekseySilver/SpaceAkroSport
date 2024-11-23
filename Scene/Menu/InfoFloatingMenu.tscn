@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy3r03pxgu2yc"]
+
+[ext_resource type="PackedScene" uid="uid://dspunufbyjro8" path="res://Scene/Menu/FloatingMenu.tscn" id="1_fxxd6"]
+[ext_resource type="Script" path="res://Script/Scene/Menu/InfoFloatingMenu.gd" id="2_hqmks"]
+[ext_resource type="Script" path="res://Script/Scene/UI/DynFontSizeButton.gd" id="3_abg5q"]
+[ext_resource type="Script" path="res://Script/Scene/UI/DynFontSizeRich.gd" id="4_nj0ka"]
+
+[node name="InfoFloatingMenu" instance=ExtResource("1_fxxd6")]
+script = ExtResource("2_hqmks")
+
+[node name="btnContinue" type="Button" parent="." index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.796875
+anchor_top = 0.844136
+anchor_right = 0.977882
+anchor_bottom = 0.953395
+offset_right = -0.520004
+offset_bottom = 0.199997
+text = "CONTINUE"
+script = ExtResource("3_abg5q")
+font_scale = 0.3
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0144653
+anchor_top = 0.0260988
+anchor_right = 0.530785
+anchor_bottom = 0.968975
+offset_left = 0.335999
+offset_top = 0.0879974
+offset_right = -0.463989
+offset_bottom = 0.104004
+expand_mode = 5
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." index="2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.546188
+anchor_top = 0.035
+anchor_right = 0.989306
+anchor_bottom = 0.825185
+offset_left = -0.208
+offset_top = 0.32
+offset_right = 0.319946
+offset_bottom = 0.279999
+script = ExtResource("4_nj0ka")
+font_scale = 0.05
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="btnContinue" to="." method="_on_btn_continue_pressed"]

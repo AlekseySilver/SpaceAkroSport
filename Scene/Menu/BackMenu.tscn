@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2k0c32l6fn8h"]
+
+[ext_resource type="PackedScene" uid="uid://c4hi0ylrwypj5" path="res://Scene/ScreenWithFader.tscn" id="1_08lj2"]
+[ext_resource type="Script" path="res://Script/Scene/Menu/BackMenu.gd" id="1_qxqy2"]
+[ext_resource type="Texture2D" uid="uid://c7o812tcjrj1r" path="res://textures/blocks.png" id="3_hf4im"]
+[ext_resource type="Script" path="res://Script/Scene/UI/DynFontSizeLabel.gd" id="3_vcq4c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qarss"]
+atlas = ExtResource("3_hf4im")
+region = Rect2(64, 128, 64, 64)
+
+[node name="BackMenu" instance=ExtResource("1_08lj2")]
+script = ExtResource("1_qxqy2")
+
+[node name="Title" type="Label" parent="UI" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.118076
+anchor_top = 0.0137037
+anchor_right = 0.899972
+anchor_bottom = 0.139321
+offset_left = -0.0240021
+offset_top = 0.119999
+offset_right = 0.231934
+offset_bottom = -0.280014
+theme_override_font_sizes/font_size = 27
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_vcq4c")
+metadata/_edit_use_anchors_ = true
+
+[node name="btnBack" type="Button" parent="UI" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0103472
+anchor_top = 0.0219753
+anchor_right = 0.0906181
+anchor_bottom = 0.130704
+offset_left = 0.0800018
+offset_top = -0.240005
+offset_right = -0.392014
+offset_bottom = 0.304001
+theme_override_font_sizes/font_size = 40
+metadata/_edit_use_anchors_ = true
+
+[node name="tex" type="TextureRect" parent="UI/btnBack" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_qarss")
+expand_mode = 2
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Fader" parent="." index="1"]
+visible = false
+
+[connection signal="pressed" from="UI/btnBack" to="." method="_on_btn_back_pressed"]

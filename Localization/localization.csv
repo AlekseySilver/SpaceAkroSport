@@ -1,0 +1,78 @@
+﻿KEYS,en,ru
+SPACEAKROSPORT,SpaceAkroSport,КосмоАкроСпорт
+RESUME,Resume,Продолжить
+SETTINGS,Settings,Настройки
+CONTROLS,Controls,Управление
+GRAPHICS,Graphics,Графика
+QUIT,Quit,Выход
+CANCEL,Cancel,Отмена
+START_GAME,Start game,Начни игру
+EDIT,Edit,Редактор
+LANG,Language/Язык,Язык/Language
+DEFAULT,Default,По умолчанию
+TRANSPARENCY,Transparency,Прозрачность
+CONTINUE,Continue,Далее
+PLAY,Play,В игру
+PAUSE,Pause,Пауза
+RESTART,Restart,Заново
+TRAIN,Train,Тренировка
+RACE,Race,Наперегонки
+PRESS_A_KEY,press a key,нажми кнопку
+ACTION,Action,Действие
+PRIMARY,Primary,Первичный
+SECONDARY,Secondary,Вторичный
+TERTIARY,Tertiary,Третичный
+TOUCH_MOVE,Move buttons with one finger,Двигать кнопки одним пальцем
+TOUCH_SCALE,Scale with two fingers,Менять размер двумя пальцами
+SHOW_SHADOWS,Show shadows,Показывать тени
+YES,Yes,Да
+NO,No,Нет
+LEFT,Left,Лево
+RIGHT,Right,Право
+UP,Up,Верх
+DOWN,Down,Низ
+MOVE_LEFT,Move left,Перемещение влево
+MOVE_RIGHT,Move right,Перемещение вправо
+HOLD_POSE1,"Hold pose 1","Удерживать позу 1"
+HOLD_POSE2,"Hold pose 2","Удерживать позу 2"
+HOLD_POSE3,"Hold pose 3\nRelease horizontal bar","Удерживать позу 3\nОтпустить турник"
+HOLD_POSE4,"Hold pose 4\nRelease horizontal bar","Удерживать позу 4\nОтпустить турник"
+BUTTON_LAYOUT,Button layout,Раскладка кнопок
+MOVE,Move,Перемещение
+HOLD_POSE1234,"Hold pose 1,2,3,4","Удерживать позу 1,2,3,4"
+RELEASE_GRAB,"3, 4 - Release horizontal bar","3, 4 - Отпустить турник"
+ADAM,Adam,Адам
+SOPHIE,Sophie,Софи
+TIMMY,Timmy,Тимми
+BIGVEGAS,Big Vegas,Большой Вегас
+MUTANT,Mutant,Мутант
+ORTIZ,Ortiz,Ортиз
+PLAYER_SELECT,Player select,Выберите игрока
+LEVEL_SELECT,Level select,Выберите уровень
+FINISH,Finish,Финиш
+TUTORIAL,Tutorial,Обучение
+GYM,Gym,Спортзал
+BATUT,Trampoline,Батут
+STAIRS,Stairs,Ступеньки
+UPHILL,Uphill,В гору
+BYPASS,Bypass,Обход
+FIRST_PLAY_TIP,"It is recommended to complete [color=#0AAC00FF]Tutorial[/color] if you are playing for the first time","Рекомендуется пройти [color=#0AAC00FF]Обучение[/color], если играете в первый раз"
+TUTORIAL_WELCOME,"Welcome to the [color=#0AAC00FF]training site[/color]","Добро пожаловать на [color=#0AAC00FF]обучающую площадку[/color]"
+TUTORIAL_JUMP,"First of all, let's learn how to [color=#0AAC00FF]jump[/color]. Follow the instructions below.","Первым делом научимся [color=#0AAC00FF]прыгать[/color]. Следуй указаниям ниже."
+TUTORIAL_JUMP_OUT,"Very good. Jump to the next room","Очень хорошо. Перепрыгни в следующую комнату"
+TUTORIAL_WHEEL,"Now let's learn how to make a [color=#0AAC00FF]wheel[/color]","Теперь научимся делать [color=#0AAC00FF]колесо[/color]"
+TUTORIAL_JUMP_OUT2,"Super duper. Let's go to the next room for a new exercise","Супер-пупер. Давай в следую комнату к новому упражнению"
+TUTORIAL_BAR,"It's time to spin to the fullest","Пришло время покрутиться как следует"
+TUTORIAL_JUMP_OUT3,"Great. Swing up and jump into the next room to complete the training","Великолепно. Раскачайся и запрыгни в следующую комнату, чтобы завершить обучение"
+TUTORIAL_WELL_DONE,"[rainbow freq=0.5 sat=0.8 val=0.8]Well done[/rainbow]","[rainbow freq=1.0 sat=0.8 val=0.8]Хорошая работа[/rainbow]"
+HOLD_GROUP,"1). To group, press and hold button %s","1). Чтобы сгруппироваться, нажми и удерживай кнопку %s"
+ROLL_ON_FEET,"2). To roll to your feet, use the move keys. Press %s or %s","2). Чтобы закатиться на ноги используй клавиши перемещения. Нажми %s или %s"
+STRAIGHT_AND_JUMP,"3). To jump, you need to straighten up. Press and hold %s","3). Чтобы прыгнуть нужно выпрямиться. Нажми и удерживай кнопку %s"
+MOVE_IN_AIR,"When you jump off the ground, you can move to the left %s or right %s","Отпрыгнув от земли можно перемещаться влево %s или вправо %s"
+HOLD_STAR,"1). Press and hold button %s, to fix the pose of the star","1). Нажми и удерживай кнопку %s, чтобы зафиксировать позу звезды"
+MOVE_KEYS,"2). To move to the left, press %s, right - %s","2). Чтобы перемещаться влево нажми %s, вправо - %s"
+GRAB_BAR,"1). Jump up to the horizontal bar to grab it","1). Подпрыгни к турнику, чтобы схватиться за него"
+GRAB_SUN,"2). To swing, use the move keys: left %s, right %s","2). Для раскачки используй клавиши перемещения: влево %s, вправо %s"
+GRAB_RELEASE,"3). To release the horizontal bar, press %s or %s","3). Чтобы отпустить турник нажми %s или %s"
+YOU_LOSE,[color=#FFAAAAFF]You lose[/color],[color=#FFAAAAFF]Поражение[/color]
+THE_END,The end,Конец

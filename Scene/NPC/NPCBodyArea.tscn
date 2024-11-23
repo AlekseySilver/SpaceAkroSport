@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c04ur2bcw6ofw"]
+
+[ext_resource type="Script" path="res://Script/Scene/NPC/NPCBodyArea.gd" id="1_ro8vu"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_np8cq"]
+
+[node name="NPCBodyArea" type="Area3D"]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("1_ro8vu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_np8cq")

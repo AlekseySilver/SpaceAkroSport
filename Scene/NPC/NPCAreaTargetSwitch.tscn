@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://chmgitsh0sock"]
+
+[ext_resource type="Script" path="res://Script/Scene/NPC/NPCAreaTargetSwitch.gd" id="1_l827e"]
+
+[node name="NPCAreaTargetSwitch" type="Area3D"]
+collision_layer = 0
+collision_mask = 32
+monitorable = false
+script = ExtResource("1_l827e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,0 +1,138 @@
+[gd_scene load_steps=10 format=3 uid="uid://bjjs31g2gmv53"]
+
+[ext_resource type="Texture2D" uid="uid://luo163ydkrof" path="res://textures/gamepad/big_circle.png" id="1_5jete"]
+[ext_resource type="Script" path="res://Script/Scene/UI/PlayTouchControls.gd" id="1_87fqx"]
+[ext_resource type="Script" path="res://Script/Scene/UI/TouchActionControl.gd" id="2_pbivs"]
+[ext_resource type="Script" path="res://Script/Scene/UI/TouchAnalogControl.gd" id="3_axfxf"]
+[ext_resource type="Texture2D" uid="uid://d3bps5fiqc6bm" path="res://textures/gamepad/small_circle.png" id="3_wpio8"]
+[ext_resource type="Texture2D" uid="uid://c75gr0kh8bfdg" path="res://textures/gamepad/B0_Xbox.png" id="4_bxe2l"]
+[ext_resource type="Texture2D" uid="uid://bah5o8wqr0h66" path="res://textures/gamepad/B1_Xbox.png" id="5_cagmp"]
+[ext_resource type="Texture2D" uid="uid://bbk2ajdwwgyn" path="res://textures/gamepad/B2_Xbox.png" id="6_qxl85"]
+[ext_resource type="Texture2D" uid="uid://c13apkxjajdre" path="res://textures/gamepad/B3_Xbox.png" id="7_jy7td"]
+
+[node name="PlayTouchControls" type="Control"]
+z_index = -10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_87fqx")
+
+[node name="Analog" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0552711
+anchor_top = 0.691852
+anchor_right = 0.166868
+anchor_bottom = 0.888678
+offset_left = 0.327698
+offset_top = -0.320007
+offset_right = -0.231628
+offset_bottom = 0.136414
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5jete")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("3_axfxf")
+action_name = &"move"
+
+[node name="AnalogSmall" type="TextureRect" parent="Analog"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.180187
+anchor_top = 0.187
+anchor_right = 0.812
+anchor_bottom = 0.812
+offset_left = 0.936
+offset_top = 0.0639992
+offset_right = 0.0639954
+offset_bottom = 0.064003
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_wpio8")
+expand_mode = 3
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="B0" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.833049
+anchor_top = 0.790617
+anchor_right = 0.916868
+anchor_bottom = 0.938061
+offset_left = 0.327698
+offset_top = -0.320007
+offset_right = -0.231628
+offset_bottom = 0.136414
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_bxe2l")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("2_pbivs")
+action_name = &"pose1"
+metadata/_edit_use_anchors_ = true
+
+[node name="B1" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.902716
+anchor_top = 0.703235
+anchor_right = 0.985667
+anchor_bottom = 0.851703
+offset_left = 0.0715332
+offset_top = 0.303955
+offset_right = 0.511902
+offset_bottom = 0.0964355
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_cagmp")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("2_pbivs")
+action_name = &"pose3"
+metadata/_edit_use_anchors_ = true
+
+[node name="B2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.763736
+anchor_top = 0.704074
+anchor_right = 0.847687
+anchor_bottom = 0.851543
+offset_left = 0.175995
+offset_top = -0.23999
+offset_right = -0.535583
+offset_bottom = 0.200439
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_qxl85")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("2_pbivs")
+action_name = &"pose2"
+metadata/_edit_use_anchors_ = true
+
+[node name="B3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.833569
+anchor_top = 0.616901
+anchor_right = 0.916701
+anchor_bottom = 0.765358
+offset_left = -0.272034
+offset_top = 0.247955
+offset_right = -0.0400085
+offset_bottom = 0.0479736
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_jy7td")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("2_pbivs")
+action_name = &"pose4"
+metadata/_edit_use_anchors_ = true

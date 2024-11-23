@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://dschoxab8gfxc"]
+
+[ext_resource type="Script" path="res://Script/Scene/UI/OptionRect.gd" id="1_elqec"]
+
+[node name="OptionRect" type="ColorRect"]
+anchors_preset = -1
+anchor_right = 0.402778
+anchor_bottom = 0.209877
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_elqec")
+metadata/_edit_use_anchors_ = true
+
+[node name="0" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0215517
+anchor_top = 0.0514706
+anchor_right = 0.464828
+anchor_bottom = 0.939647
+offset_right = 0.319946
+offset_bottom = 0.207977
+toggle_mode = true
+text = "1"
+metadata/_edit_use_anchors_ = true
+
+[node name="1" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.0588235
+anchor_right = 0.930345
+anchor_bottom = 0.947
+offset_right = 0.319946
+offset_bottom = 0.207977
+toggle_mode = true
+button_pressed = true
+text = "2"
+metadata/_edit_use_anchors_ = true

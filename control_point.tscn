@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://clpo4ibdc6l5u"]
+
+[ext_resource type="Script" path="res://Script/ControlPoint.gd" id="1_hpnqr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aejtk"]
+transparency = 1
+albedo_color = Color(0.212739, 0.290624, 1, 0.392157)
+
+[sub_resource type="SphereMesh" id="SphereMesh_56vtw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_i767v"]
+radius = 0.42
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bvotx"]
+top_radius = 0.0
+height = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_28kix"]
+top_radius = 0.2
+bottom_radius = 0.2
+height = 1.0
+
+[node name="ControlPoint" type="Area3D"]
+collision_layer = 128
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_hpnqr")
+center_offset = Vector3(0, 10, 0)
+impulse_scale = 1.0
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_aejtk")
+mesh = SubResource("SphereMesh_56vtw")
+
+[node name="Coll" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_i767v")
+
+[node name="ArrowTop" type="MeshInstance3D" parent="."]
+visible = false
+material_override = SubResource("StandardMaterial3D_aejtk")
+mesh = SubResource("CylinderMesh_bvotx")
+
+[node name="ArrowBody" type="MeshInstance3D" parent="."]
+visible = false
+material_override = SubResource("StandardMaterial3D_aejtk")
+mesh = SubResource("CylinderMesh_28kix")

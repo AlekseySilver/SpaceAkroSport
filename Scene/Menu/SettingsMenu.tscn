@@ -1,0 +1,1272 @@
+[gd_scene load_steps=21 format=3 uid="uid://cwgeabo0xn4a"]
+
+[ext_resource type="PackedScene" uid="uid://c2k0c32l6fn8h" path="res://Scene/Menu/BackMenu.tscn" id="1_k17lr"]
+[ext_resource type="Script" path="res://Script/Scene/Menu/SettingsMenu.gd" id="2_xm5kr"]
+[ext_resource type="Texture2D" uid="uid://b2ccucjvsgrp4" path="res://textures/bg_controls.png" id="3_caqpq"]
+[ext_resource type="Script" path="res://Script/Scene/UI/DynFontSizeLabel.gd" id="4_43yu0"]
+[ext_resource type="Script" path="res://Script/Scene/UI/DynFontSizeButton.gd" id="5_m4tw3"]
+[ext_resource type="Texture2D" uid="uid://c75gr0kh8bfdg" path="res://textures/gamepad/B0_Xbox.png" id="6_j7sob"]
+[ext_resource type="Texture2D" uid="uid://bah5o8wqr0h66" path="res://textures/gamepad/B1_Xbox.png" id="7_qpvxb"]
+[ext_resource type="Texture2D" uid="uid://bbk2ajdwwgyn" path="res://textures/gamepad/B2_Xbox.png" id="8_joocr"]
+[ext_resource type="Texture2D" uid="uid://c13apkxjajdre" path="res://textures/gamepad/B3_Xbox.png" id="9_gxsin"]
+[ext_resource type="Script" path="res://Script/Scene/Menu/SettingsTouchControls.gd" id="10_lnmky"]
+[ext_resource type="Texture2D" uid="uid://luo163ydkrof" path="res://textures/gamepad/big_circle.png" id="10_vyw3n"]
+[ext_resource type="PackedScene" uid="uid://dschoxab8gfxc" path="res://Scene/UI/OptionRect.tscn" id="10_xyks8"]
+[ext_resource type="Script" path="res://Script/Scene/UI/TouchAnalogControl.gd" id="12_fvxbm"]
+[ext_resource type="Texture2D" uid="uid://d3bps5fiqc6bm" path="res://textures/gamepad/small_circle.png" id="12_vmx5v"]
+[ext_resource type="Script" path="res://Script/Scene/UI/TouchActionControl.gd" id="14_sbcll"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1sr41"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_argln"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_2o51t"]
+resource_name = "Fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wfa2a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hw05e"]
+_data = {
+"Fade": SubResource("Animation_2o51t"),
+"RESET": SubResource("Animation_wfa2a")
+}
+
+[node name="SettingsMenu" instance=ExtResource("1_k17lr")]
+script = ExtResource("2_xm5kr")
+
+[node name="UI" parent="." index="0"]
+process_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="UI" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_caqpq")
+metadata/_edit_lock_ = true
+
+[node name="TabContainer" type="TabContainer" parent="UI" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.111037
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.0480003
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 1
+tabs_visible = false
+metadata/_edit_use_anchors_ = true
+
+[node name="CONTROLS" type="Control" parent="UI/TabContainer" index="1"]
+visible = false
+layout_mode = 2
+focus_neighbor_left = NodePath("../../btnBack")
+metadata/_tab_index = 0
+
+[node name="Panel0" type="ColorRect" parent="UI/TabContainer/CONTROLS" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.042
+anchor_top = 0.017
+anchor_right = 0.965
+anchor_bottom = 0.178
+offset_left = -0.384007
+offset_top = 0.160003
+offset_right = 0.319824
+offset_bottom = -0.095993
+color = Color(1, 1, 1, 0.352941)
+metadata/_edit_use_anchors_ = true
+
+[node name="BUTTON_LAYOUT" type="Label" parent="UI/TabContainer/CONTROLS/Panel0" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.008
+anchor_top = 0.154077
+anchor_right = 0.255491
+anchor_bottom = 0.846231
+offset_left = -0.512
+offset_top = -0.0240002
+offset_right = 0.157745
+offset_bottom = -0.00800323
+theme_override_font_sizes/font_size = 20
+text = "BUTTON_LAYOUT"
+label_settings = SubResource("LabelSettings_1sr41")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_43yu0")
+font_scale = 0.4
+metadata/_edit_use_anchors_ = true
+
+[node name="btnXbox" type="Button" parent="UI/TabContainer/CONTROLS/Panel0" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.435602
+anchor_top = 0.307923
+anchor_right = 0.554928
+anchor_bottom = 0.663462
+offset_left = 0.519989
+offset_top = -0.0240002
+offset_right = -0.443512
+offset_bottom = 3.0
+text = "Xbox"
+script = ExtResource("5_m4tw3")
+
+[node name="btnPlayStation" type="Button" parent="UI/TabContainer/CONTROLS/Panel0" index="2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.616602
+anchor_top = 0.307923
+anchor_right = 0.734967
+anchor_bottom = 0.663462
+offset_left = -0.0640259
+offset_top = -0.0240002
+offset_right = -0.00445557
+offset_bottom = 3.0
+text = "PlayStation"
+script = ExtResource("5_m4tw3")
+
+[node name="btnSwitch" type="Button" parent="UI/TabContainer/CONTROLS/Panel0" index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.796602
+anchor_top = 0.307923
+anchor_right = 0.917773
+anchor_bottom = 0.663462
+offset_left = 0.415955
+offset_top = -0.0240002
+offset_right = -0.510925
+offset_bottom = 3.0
+text = "Switch"
+script = ExtResource("5_m4tw3")
+
+[node name="B0" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel0" index="4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.300519
+anchor_top = 0.538077
+anchor_right = 0.338075
+anchor_bottom = 0.922769
+offset_left = 0.247986
+offset_top = 0.0400009
+offset_right = 0.287964
+offset_bottom = 0.0319977
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_j7sob")
+expand_mode = 3
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="B1" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel0" index="5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.330594
+anchor_top = 0.307308
+anchor_right = 0.36815
+anchor_bottom = 0.692
+offset_left = 0.247986
+offset_top = 0.0400009
+offset_right = 0.287964
+offset_bottom = 0.0319977
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_qpvxb")
+expand_mode = 3
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="B2" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel0" index="6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.270444
+anchor_top = 0.307308
+anchor_right = 0.308
+anchor_bottom = 0.692
+offset_left = 0.247986
+offset_top = 0.0400009
+offset_right = 0.287964
+offset_bottom = 0.0319977
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_joocr")
+expand_mode = 3
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="B3" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel0" index="7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.300519
+anchor_top = 0.0765385
+anchor_right = 0.338075
+anchor_bottom = 0.461231
+offset_left = 0.247986
+offset_top = 0.0400009
+offset_right = 0.287964
+offset_bottom = 0.0319977
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_gxsin")
+expand_mode = 3
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel2" type="ColorRect" parent="UI/TabContainer/CONTROLS" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.042
+anchor_top = 0.312
+anchor_right = 0.965
+anchor_bottom = 0.398
+offset_left = -0.383957
+offset_top = 0.0544281
+offset_right = 0.319336
+offset_bottom = 0.281784
+color = Color(1, 1, 1, 0.352941)
+metadata/_edit_use_anchors_ = true
+
+[node name="name" type="Label" parent="UI/TabContainer/CONTROLS/Panel2" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015406
+anchor_top = 0.00257172
+anchor_right = 0.255357
+anchor_bottom = 0.997619
+offset_left = -0.392002
+offset_top = -0.144016
+offset_right = 0.299744
+offset_bottom = 0.133354
+theme_override_font_sizes/font_size = 20
+text = "MOVE_LEFT"
+label_settings = SubResource("LabelSettings_1sr41")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_43yu0")
+metadata/_edit_use_anchors_ = true
+
+[node name="btn0" type="Button" parent="UI/TabContainer/CONTROLS/Panel2" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.315301
+anchor_top = 0.143286
+anchor_right = 0.496657
+anchor_bottom = 0.803572
+offset_left = 0.519989
+offset_top = -0.0240002
+offset_right = -0.443512
+offset_bottom = 3.0
+toggle_mode = true
+action_mode = 0
+script = ExtResource("5_m4tw3")
+
+[node name="tex" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel2/btn0" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.208
+anchor_bottom = 1.0
+offset_right = 0.0641785
+offset_bottom = 0.000125885
+expand_mode = 4
+stretch_mode = 4
+
+[node name="btn1" type="Button" parent="UI/TabContainer/CONTROLS/Panel2" index="2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.556451
+anchor_top = 0.143286
+anchor_right = 0.736846
+anchor_bottom = 0.803572
+offset_left = -0.0640259
+offset_top = -0.0240002
+offset_right = -0.00445557
+offset_bottom = 3.0
+toggle_mode = true
+action_mode = 0
+script = ExtResource("5_m4tw3")
+
+[node name="tex" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel2/btn1" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.208
+anchor_bottom = 1.0
+offset_right = 0.0641785
+offset_bottom = 0.000125885
+expand_mode = 4
+stretch_mode = 4
+
+[node name="btn2" type="Button" parent="UI/TabContainer/CONTROLS/Panel2" index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.796602
+anchor_top = 0.143286
+anchor_right = 0.977924
+anchor_bottom = 0.803572
+offset_left = 0.415955
+offset_top = -0.0240002
+offset_right = -0.510925
+offset_bottom = 3.0
+toggle_mode = true
+action_mode = 0
+script = ExtResource("5_m4tw3")
+
+[node name="tex" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel2/btn2" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.208
+anchor_bottom = 1.0
+offset_right = 0.0641785
+offset_bottom = 0.000125885
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Panel3" type="ColorRect" parent="UI/TabContainer/CONTROLS" index="2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0414445
+anchor_top = 0.424
+anchor_right = 0.965
+anchor_bottom = 0.511
+offset_left = 0.255981
+offset_top = 0.233475
+offset_right = 0.319336
+offset_bottom = -0.115173
+color = Color(1, 1, 1, 0.352941)
+metadata/_edit_use_anchors_ = true
+
+[node name="name" type="Label" parent="UI/TabContainer/CONTROLS/Panel3" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015406
+anchor_top = 0.00257172
+anchor_right = 0.255357
+anchor_bottom = 0.997619
+offset_left = -0.392002
+offset_top = -0.144016
+offset_right = 0.299744
+offset_bottom = 0.133354
+theme_override_font_sizes/font_size = 20
+text = "MOVE_RIGHT"
+label_settings = SubResource("LabelSettings_1sr41")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_43yu0")
+metadata/_edit_use_anchors_ = true
+
+[node name="btn0" type="Button" parent="UI/TabContainer/CONTROLS/Panel3" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.315301
+anchor_top = 0.143286
+anchor_right = 0.496657
+anchor_bottom = 0.803572
+offset_left = 0.519989
+offset_top = -0.0240002
+offset_right = -0.443512
+offset_bottom = 3.0
+toggle_mode = true
+action_mode = 0
+script = ExtResource("5_m4tw3")
+
+[node name="tex" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel3/btn0" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.208
+anchor_bottom = 1.0
+offset_right = 0.0641785
+offset_bottom = 0.000125885
+expand_mode = 4
+stretch_mode = 4
+
+[node name="btn1" type="Button" parent="UI/TabContainer/CONTROLS/Panel3" index="2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.556451
+anchor_top = 0.143286
+anchor_right = 0.736846
+anchor_bottom = 0.803572
+offset_left = -0.0640259
+offset_top = -0.0240002
+offset_right = -0.00445557
+offset_bottom = 3.0
+toggle_mode = true
+action_mode = 0
+script = ExtResource("5_m4tw3")
+
+[node name="tex" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel3/btn1" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.208
+anchor_bottom = 1.0
+offset_right = 0.0641785
+offset_bottom = 0.000125885
+expand_mode = 4
+stretch_mode = 4
+
+[node name="btn2" type="Button" parent="UI/TabContainer/CONTROLS/Panel3" index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.796602
+anchor_top = 0.143286
+anchor_right = 0.977924
+anchor_bottom = 0.803572
+offset_left = 0.415955
+offset_top = -0.0240002
+offset_right = -0.510925
+offset_bottom = 3.0
+toggle_mode = true
+action_mode = 0
+script = ExtResource("5_m4tw3")
+
+[node name="tex" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel3/btn2" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.208
+anchor_bottom = 1.0
+offset_right = 0.0641785
+offset_bottom = 0.000125885
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Panel4" type="ColorRect" parent="UI/TabContainer/CONTROLS" index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.042
+anchor_top = 0.537
+anchor_right = 0.965
+anchor_bottom = 0.623
+offset_left = -0.383957
+offset_top = -0.163422
+offset_right = 0.319336
+offset_bottom = 0.0645142
+color = Color(1, 1, 1, 0.352941)
+metadata/_edit_use_anchors_ = true
+
+[node name="name" type="Label" parent="UI/TabContainer/CONTROLS/Panel4" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015406
+anchor_top = 0.00257172
+anchor_right = 0.255357
+anchor_bottom = 0.997619
+offset_left = -0.392002
+offset_top = -0.144016
+offset_right = 0.299744
+offset_bottom = 0.133354
+theme_override_font_sizes/font_size = 20
+text = "HOLD_POSE1"
+label_settings = SubResource("LabelSettings_1sr41")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_43yu0")
+metadata/_edit_use_anchors_ = true
+
+[node name="btn0" type="Button" parent="UI/TabContainer/CONTROLS/Panel4" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.315301
+anchor_top = 0.143286
+anchor_right = 0.496657
+anchor_bottom = 0.803572
+offset_left = 0.519989
+offset_top = -0.0240002
+offset_right = -0.443512
+offset_bottom = 3.0
+toggle_mode = true
+action_mode = 0
+script = ExtResource("5_m4tw3")
+
+[node name="tex" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel4/btn0" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.208
+anchor_bottom = 1.0
+offset_right = 0.0641785
+offset_bottom = 0.000125885
+expand_mode = 4
+stretch_mode = 4
+
+[node name="btn1" type="Button" parent="UI/TabContainer/CONTROLS/Panel4" index="2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.556451
+anchor_top = 0.143286
+anchor_right = 0.736846
+anchor_bottom = 0.803572
+offset_left = -0.0640259
+offset_top = -0.0240002
+offset_right = -0.00445557
+offset_bottom = 3.0
+toggle_mode = true
+action_mode = 0
+script = ExtResource("5_m4tw3")
+
+[node name="tex" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel4/btn1" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.208
+anchor_bottom = 1.0
+offset_right = 0.0641785
+offset_bottom = 0.000125885
+expand_mode = 4
+stretch_mode = 4
+
+[node name="btn2" type="Button" parent="UI/TabContainer/CONTROLS/Panel4" index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.796602
+anchor_top = 0.143286
+anchor_right = 0.977924
+anchor_bottom = 0.803572
+offset_left = 0.415955
+offset_top = -0.0240002
+offset_right = -0.510925
+offset_bottom = 3.0
+toggle_mode = true
+action_mode = 0
+script = ExtResource("5_m4tw3")
+
+[node name="tex" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel4/btn2" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.208
+anchor_bottom = 1.0
+offset_right = 0.0641785
+offset_bottom = 0.000125885
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Panel5" type="ColorRect" parent="UI/TabContainer/CONTROLS" index="4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.042
+anchor_top = 0.649
+anchor_right = 0.965
+anchor_bottom = 0.735
+offset_left = -0.383957
+offset_top = 0.0162354
+offset_right = 0.319336
+offset_bottom = 0.243683
+color = Color(1, 1, 1, 0.352941)
+metadata/_edit_use_anchors_ = true
+
+[node name="name" type="Label" parent="UI/TabContainer/CONTROLS/Panel5" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015406
+anchor_top = 0.00257172
+anchor_right = 0.255357
+anchor_bottom = 0.997619
+offset_left = -0.392002
+offset_top = -0.144016
+offset_right = 0.299744
+offset_bottom = 0.133354
+theme_override_font_sizes/font_size = 20
+text = "HOLD_POSE2"
+label_settings = SubResource("LabelSettings_1sr41")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_43yu0")
+metadata/_edit_use_anchors_ = true
+
+[node name="btn0" type="Button" parent="UI/TabContainer/CONTROLS/Panel5" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.315301
+anchor_top = 0.143286
+anchor_right = 0.496657
+anchor_bottom = 0.803572
+offset_left = 0.519989
+offset_top = -0.0240002
+offset_right = -0.443512
+offset_bottom = 3.0
+toggle_mode = true
+action_mode = 0
+script = ExtResource("5_m4tw3")
+
+[node name="tex" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel5/btn0" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.208
+anchor_bottom = 1.0
+offset_right = 0.0641785
+offset_bottom = 0.000125885
+expand_mode = 4
+stretch_mode = 4
+
+[node name="btn1" type="Button" parent="UI/TabContainer/CONTROLS/Panel5" index="2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.556451
+anchor_top = 0.143286
+anchor_right = 0.736846
+anchor_bottom = 0.803572
+offset_left = -0.0640259
+offset_top = -0.0240002
+offset_right = -0.00445557
+offset_bottom = 3.0
+toggle_mode = true
+action_mode = 0
+script = ExtResource("5_m4tw3")
+
+[node name="tex" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel5/btn1" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.208
+anchor_bottom = 1.0
+offset_right = 0.0641785
+offset_bottom = 0.000125885
+expand_mode = 4
+stretch_mode = 4
+
+[node name="btn2" type="Button" parent="UI/TabContainer/CONTROLS/Panel5" index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.796602
+anchor_top = 0.143286
+anchor_right = 0.977924
+anchor_bottom = 0.803572
+offset_left = 0.415955
+offset_top = -0.0240002
+offset_right = -0.510925
+offset_bottom = 3.0
+toggle_mode = true
+action_mode = 0
+script = ExtResource("5_m4tw3")
+
+[node name="tex" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel5/btn2" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.208
+anchor_bottom = 1.0
+offset_right = 0.0641785
+offset_bottom = 0.000125885
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Panel6" type="ColorRect" parent="UI/TabContainer/CONTROLS" index="5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.042
+anchor_top = 0.761
+anchor_right = 0.965
+anchor_bottom = 0.848
+offset_left = -0.383957
+offset_top = 0.195343
+offset_right = 0.319336
+offset_bottom = -0.15271
+color = Color(1, 1, 1, 0.352941)
+metadata/_edit_use_anchors_ = true
+
+[node name="name" type="Label" parent="UI/TabContainer/CONTROLS/Panel6" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015406
+anchor_top = 0.00257172
+anchor_right = 0.255357
+anchor_bottom = 0.997619
+offset_left = -0.392002
+offset_top = -0.144016
+offset_right = 0.299744
+offset_bottom = 0.133354
+theme_override_font_sizes/font_size = 20
+text = "HOLD_POSE3"
+label_settings = SubResource("LabelSettings_1sr41")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_43yu0")
+metadata/_edit_use_anchors_ = true
+
+[node name="btn0" type="Button" parent="UI/TabContainer/CONTROLS/Panel6" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.315301
+anchor_top = 0.143286
+anchor_right = 0.496657
+anchor_bottom = 0.803572
+offset_left = 0.519989
+offset_top = -0.0240002
+offset_right = -0.443512
+offset_bottom = 3.0
+toggle_mode = true
+action_mode = 0
+script = ExtResource("5_m4tw3")
+
+[node name="tex" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel6/btn0" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.208
+anchor_bottom = 1.0
+offset_right = 0.0641785
+offset_bottom = 0.000125885
+expand_mode = 4
+stretch_mode = 4
+
+[node name="btn1" type="Button" parent="UI/TabContainer/CONTROLS/Panel6" index="2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.556451
+anchor_top = 0.143286
+anchor_right = 0.736846
+anchor_bottom = 0.803572
+offset_left = -0.0640259
+offset_top = -0.0240002
+offset_right = -0.00445557
+offset_bottom = 3.0
+toggle_mode = true
+action_mode = 0
+script = ExtResource("5_m4tw3")
+
+[node name="tex" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel6/btn1" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.208
+anchor_bottom = 1.0
+offset_right = 0.0641785
+offset_bottom = 0.000125885
+expand_mode = 4
+stretch_mode = 4
+
+[node name="btn2" type="Button" parent="UI/TabContainer/CONTROLS/Panel6" index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.796602
+anchor_top = 0.143286
+anchor_right = 0.977924
+anchor_bottom = 0.803572
+offset_left = 0.415955
+offset_top = -0.0240002
+offset_right = -0.510925
+offset_bottom = 3.0
+toggle_mode = true
+action_mode = 0
+script = ExtResource("5_m4tw3")
+
+[node name="tex" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel6/btn2" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.208
+anchor_bottom = 1.0
+offset_right = 0.0641785
+offset_bottom = 0.000125885
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Panel7" type="ColorRect" parent="UI/TabContainer/CONTROLS" index="6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.042
+anchor_top = 0.874
+anchor_right = 0.965
+anchor_bottom = 0.96
+offset_left = -0.383957
+offset_top = -0.200867
+offset_right = 0.319336
+offset_bottom = 0.0264893
+color = Color(1, 1, 1, 0.352941)
+metadata/_edit_use_anchors_ = true
+
+[node name="name" type="Label" parent="UI/TabContainer/CONTROLS/Panel7" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015406
+anchor_top = 0.00257172
+anchor_right = 0.255357
+anchor_bottom = 0.997619
+offset_left = -0.392002
+offset_top = -0.144016
+offset_right = 0.299744
+offset_bottom = 0.133354
+theme_override_font_sizes/font_size = 20
+text = "HOLD_POSE4"
+label_settings = SubResource("LabelSettings_1sr41")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_43yu0")
+metadata/_edit_use_anchors_ = true
+
+[node name="btn0" type="Button" parent="UI/TabContainer/CONTROLS/Panel7" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.315301
+anchor_top = 0.143286
+anchor_right = 0.496657
+anchor_bottom = 0.803572
+offset_left = 0.519989
+offset_top = -0.0240002
+offset_right = -0.443512
+offset_bottom = 3.0
+toggle_mode = true
+action_mode = 0
+script = ExtResource("5_m4tw3")
+
+[node name="tex" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel7/btn0" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.208
+anchor_bottom = 1.0
+offset_right = 0.0641785
+offset_bottom = 0.000125885
+expand_mode = 4
+stretch_mode = 4
+
+[node name="btn1" type="Button" parent="UI/TabContainer/CONTROLS/Panel7" index="2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.556451
+anchor_top = 0.143286
+anchor_right = 0.736846
+anchor_bottom = 0.803572
+offset_left = -0.0640259
+offset_top = -0.0240002
+offset_right = -0.00445557
+offset_bottom = 3.0
+toggle_mode = true
+action_mode = 0
+script = ExtResource("5_m4tw3")
+
+[node name="tex" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel7/btn1" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.208
+anchor_bottom = 1.0
+offset_right = 0.0641785
+offset_bottom = 0.000125885
+expand_mode = 4
+stretch_mode = 4
+
+[node name="btn2" type="Button" parent="UI/TabContainer/CONTROLS/Panel7" index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.796602
+anchor_top = 0.143286
+anchor_right = 0.977924
+anchor_bottom = 0.803572
+offset_left = 0.415955
+offset_top = -0.0240002
+offset_right = -0.510925
+offset_bottom = 3.0
+toggle_mode = true
+action_mode = 0
+script = ExtResource("5_m4tw3")
+
+[node name="tex" type="TextureRect" parent="UI/TabContainer/CONTROLS/Panel7/btn2" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.208
+anchor_bottom = 1.0
+offset_right = 0.0641785
+offset_bottom = 0.000125885
+expand_mode = 4
+stretch_mode = 4
+
+[node name="ACTION" type="Label" parent="UI/TabContainer/CONTROLS" index="7"]
+modulate = Color(0.409072, 0.698387, 1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.056
+anchor_top = 0.242
+anchor_right = 0.292
+anchor_bottom = 0.291
+offset_left = -0.512043
+offset_top = -0.0568542
+offset_right = -0.384583
+offset_bottom = 0.194031
+theme_override_font_sizes/font_size = 20
+text = "ACTION"
+label_settings = SubResource("LabelSettings_1sr41")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_43yu0")
+metadata/_edit_use_anchors_ = true
+
+[node name="PRIMARY" type="Label" parent="UI/TabContainer/CONTROLS" index="8"]
+modulate = Color(0.409072, 0.698387, 1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.333
+anchor_top = 0.242
+anchor_right = 0.5
+anchor_bottom = 0.291
+offset_left = 0.38446
+offset_top = -0.0568542
+offset_right = 0.000244141
+offset_bottom = 0.194031
+theme_override_font_sizes/font_size = 20
+text = "PRIMARY"
+label_settings = SubResource("LabelSettings_1sr41")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_43yu0")
+metadata/_edit_use_anchors_ = true
+
+[node name="SECONDARY" type="Label" parent="UI/TabContainer/CONTROLS" index="9"]
+modulate = Color(0.409072, 0.698387, 1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.556
+anchor_top = 0.242
+anchor_right = 0.722
+anchor_bottom = 0.291
+offset_left = -0.511963
+offset_top = -0.0568542
+offset_right = 0.255859
+offset_bottom = 0.194031
+theme_override_font_sizes/font_size = 20
+text = "SECONDARY"
+label_settings = SubResource("LabelSettings_1sr41")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_43yu0")
+metadata/_edit_use_anchors_ = true
+
+[node name="TERTIARY" type="Label" parent="UI/TabContainer/CONTROLS" index="10"]
+modulate = Color(0.409072, 0.698387, 1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.778
+anchor_top = 0.242
+anchor_right = 0.944
+anchor_bottom = 0.291
+offset_left = -0.256104
+offset_top = -0.0568542
+offset_right = 0.511719
+offset_bottom = 0.194031
+theme_override_font_sizes/font_size = 20
+text = "TERTIARY"
+label_settings = SubResource("LabelSettings_1sr41")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_43yu0")
+metadata/_edit_use_anchors_ = true
+
+[node name="TOUCH_CONTROLS" type="Control" parent="UI/TabContainer" index="2"]
+layout_mode = 2
+script = ExtResource("10_lnmky")
+metadata/_tab_index = 1
+
+[node name="TOUCH_MOVE" type="Label" parent="UI/TabContainer/TOUCH_CONTROLS" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.111
+anchor_top = 0.097
+anchor_right = 0.889
+anchor_bottom = 0.208
+offset_left = 0.127991
+offset_top = 0.127998
+offset_right = -0.128052
+offset_bottom = 0.192001
+theme_override_font_sizes/font_size = 20
+text = "TOUCH_MOVE"
+label_settings = SubResource("LabelSettings_argln")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_43yu0")
+metadata/_edit_use_anchors_ = true
+
+[node name="TOUCH_SCALE" type="Label" parent="UI/TabContainer/TOUCH_CONTROLS" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.111451
+anchor_top = 0.319694
+anchor_right = 0.888629
+anchor_bottom = 0.430324
+offset_left = -0.392002
+offset_top = -0.144016
+offset_right = 0.299744
+offset_bottom = 0.133354
+theme_override_font_sizes/font_size = 20
+text = "TOUCH_SCALE"
+label_settings = SubResource("LabelSettings_argln")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_43yu0")
+metadata/_edit_use_anchors_ = true
+
+[node name="Analog" type="TextureRect" parent="UI/TabContainer/TOUCH_CONTROLS" index="2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00028446
+anchor_top = 0.542222
+anchor_right = 0.222423
+anchor_bottom = 0.985874
+offset_left = 0.327698
+offset_top = -0.320007
+offset_right = -0.231628
+offset_bottom = 0.136414
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_vyw3n")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("12_fvxbm")
+metadata/_edit_use_anchors_ = true
+
+[node name="AnalogSmall" type="TextureRect" parent="UI/TabContainer/TOUCH_CONTROLS/Analog" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.180187
+anchor_top = 0.187
+anchor_right = 0.812
+anchor_bottom = 0.812
+offset_left = 0.936
+offset_top = 0.0639992
+offset_right = 0.0639954
+offset_bottom = 0.064003
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_vmx5v")
+expand_mode = 3
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="B0" type="TextureRect" parent="UI/TabContainer/TOUCH_CONTROLS" index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.777493
+anchor_top = 0.764444
+anchor_right = 0.890826
+anchor_bottom = 0.985874
+offset_left = 0.327698
+offset_top = -0.320007
+offset_right = -0.231628
+offset_bottom = 0.136414
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_j7sob")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("14_sbcll")
+metadata/_edit_use_anchors_ = true
+
+[node name="B1" type="TextureRect" parent="UI/TabContainer/TOUCH_CONTROLS" index="4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.881882
+anchor_top = 0.596695
+anchor_right = 0.995215
+anchor_bottom = 0.819277
+offset_left = 0.0715332
+offset_top = 0.303955
+offset_right = 0.511902
+offset_bottom = 0.0964355
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_qpvxb")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("14_sbcll")
+metadata/_edit_use_anchors_ = true
+
+[node name="B2" type="TextureRect" parent="UI/TabContainer/TOUCH_CONTROLS" index="5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.673458
+anchor_top = 0.597639
+anchor_right = 0.785187
+anchor_bottom = 0.819096
+offset_left = 0.175995
+offset_top = -0.23999
+offset_right = -0.535583
+offset_bottom = 0.200439
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_joocr")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("14_sbcll")
+metadata/_edit_use_anchors_ = true
+
+[node name="B3" type="TextureRect" parent="UI/TabContainer/TOUCH_CONTROLS" index="6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.778014
+anchor_top = 0.430125
+anchor_right = 0.888924
+anchor_bottom = 0.652694
+offset_left = -0.272034
+offset_top = 0.247955
+offset_right = -0.0400085
+offset_bottom = 0.0479736
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_gxsin")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("14_sbcll")
+metadata/_edit_use_anchors_ = true
+
+[node name="GRAPHICS" type="Control" parent="UI/TabContainer" index="3"]
+visible = false
+layout_mode = 2
+focus_neighbor_right = NodePath("../../btnDefault")
+metadata/_tab_index = 2
+
+[node name="ShowShadows" type="Label" parent="UI/TabContainer/GRAPHICS" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0150972
+anchor_top = 0.0419167
+anchor_right = 0.254948
+anchor_bottom = 0.124768
+offset_left = -0.392002
+offset_top = -0.144015
+offset_right = 0.299744
+offset_bottom = 0.133362
+theme_override_font_sizes/font_size = 20
+text = "SHOW_SHADOWS"
+label_settings = SubResource("LabelSettings_1sr41")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_43yu0")
+metadata/_edit_use_anchors_ = true
+
+[node name="ShowShadowsOpt" parent="UI/TabContainer/GRAPHICS" index="1" instance=ExtResource("10_xyks8")]
+layout_mode = 1
+anchor_left = 0.298611
+anchor_top = 0.0416667
+anchor_right = 0.828993
+anchor_bottom = 0.125
+grow_horizontal = 1
+grow_vertical = 1
+color = Color(1, 1, 1, 0.368627)
+
+[node name="0" parent="UI/TabContainer/GRAPHICS/ShowShadowsOpt" index="0"]
+text = "NO"
+
+[node name="1" parent="UI/TabContainer/GRAPHICS/ShowShadowsOpt" index="1"]
+text = "YES"
+
+[node name="Title" parent="UI" index="2"]
+anchor_top = -0.000185184
+anchor_right = 0.763688
+anchor_bottom = 0.0621605
+text = "SETTINGS"
+
+[node name="btnBack" parent="UI" index="3"]
+anchor_bottom = 0.110642
+
+[node name="btnDefault" type="Button" parent="UI" index="4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.784271
+anchor_top = 0.0370741
+anchor_right = 0.965663
+anchor_bottom = 0.0941358
+offset_left = 0.519989
+offset_top = -0.0240002
+offset_right = -0.443512
+offset_bottom = 3.0
+toggle_mode = true
+action_mode = 0
+text = "DEFAULT"
+script = ExtResource("5_m4tw3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Tabs" parent="UI" index="5" instance=ExtResource("10_xyks8")]
+layout_mode = 1
+anchor_left = 0.173611
+anchor_top = 0.0617284
+anchor_right = 0.715278
+anchor_bottom = 0.123457
+grow_horizontal = 1
+grow_vertical = 1
+color = Color(0.303233, 0.303233, 0.303233, 1)
+
+[node name="0" parent="UI/Tabs" index="0"]
+text = "CONTROLS"
+
+[node name="1" parent="UI/Tabs" index="1"]
+text = "GRAPHICS"
+
+[node name="Fader" parent="." index="1"]
+process_mode = 0
+
+[node name="AnimationPlayer" parent="Fader" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_hw05e")
+}
+
+[connection signal="pressed" from="UI/TabContainer/CONTROLS/Panel0/btnXbox" to="." method="_on_btn_xbox_pressed"]
+[connection signal="pressed" from="UI/TabContainer/CONTROLS/Panel0/btnPlayStation" to="." method="_on_btn_play_station_pressed"]
+[connection signal="pressed" from="UI/TabContainer/CONTROLS/Panel0/btnSwitch" to="." method="_on_btn_switch_pressed"]
+[connection signal="pressed" from="UI/TabContainer/CONTROLS/Panel2/btn0" to="." method="_on_btn_bind_pressed" binds= [&"move_left", &"0"]]
+[connection signal="pressed" from="UI/TabContainer/CONTROLS/Panel2/btn1" to="." method="_on_btn_bind_pressed" binds= [&"move_left", 1]]
+[connection signal="pressed" from="UI/TabContainer/CONTROLS/Panel2/btn2" to="." method="_on_btn_bind_pressed" binds= [&"move_left", 2]]
+[connection signal="pressed" from="UI/TabContainer/CONTROLS/Panel3/btn0" to="." method="_on_btn_bind_pressed" binds= [&"move_right", 0]]
+[connection signal="pressed" from="UI/TabContainer/CONTROLS/Panel3/btn1" to="." method="_on_btn_bind_pressed" binds= [&"move_right", 1]]
+[connection signal="pressed" from="UI/TabContainer/CONTROLS/Panel3/btn2" to="." method="_on_btn_bind_pressed" binds= [&"move_right", 2]]
+[connection signal="pressed" from="UI/TabContainer/CONTROLS/Panel4/btn0" to="." method="_on_btn_bind_pressed" binds= [&"pose1", 0]]
+[connection signal="pressed" from="UI/TabContainer/CONTROLS/Panel4/btn1" to="." method="_on_btn_bind_pressed" binds= [&"pose1", 1]]
+[connection signal="pressed" from="UI/TabContainer/CONTROLS/Panel4/btn2" to="." method="_on_btn_bind_pressed" binds= [&"pose1", 2]]
+[connection signal="pressed" from="UI/TabContainer/CONTROLS/Panel5/btn0" to="." method="_on_btn_bind_pressed" binds= [&"pose2", 0]]
+[connection signal="pressed" from="UI/TabContainer/CONTROLS/Panel5/btn1" to="." method="_on_btn_bind_pressed" binds= [&"pose2", 1]]
+[connection signal="pressed" from="UI/TabContainer/CONTROLS/Panel5/btn2" to="." method="_on_btn_bind_pressed" binds= [&"pose2", 2]]
+[connection signal="pressed" from="UI/TabContainer/CONTROLS/Panel6/btn0" to="." method="_on_btn_bind_pressed" binds= [&"pose3", 0]]
+[connection signal="pressed" from="UI/TabContainer/CONTROLS/Panel6/btn1" to="." method="_on_btn_bind_pressed" binds= [&"pose3", 1]]
+[connection signal="pressed" from="UI/TabContainer/CONTROLS/Panel6/btn2" to="." method="_on_btn_bind_pressed" binds= [&"pose3", 2]]
+[connection signal="pressed" from="UI/TabContainer/CONTROLS/Panel7/btn0" to="." method="_on_btn_bind_pressed" binds= [&"pose4", 0]]
+[connection signal="pressed" from="UI/TabContainer/CONTROLS/Panel7/btn1" to="." method="_on_btn_bind_pressed" binds= [&"pose4", 1]]
+[connection signal="pressed" from="UI/TabContainer/CONTROLS/Panel7/btn2" to="." method="_on_btn_bind_pressed" binds= [&"pose4", 2]]
+[connection signal="option_selected" from="UI/TabContainer/GRAPHICS/ShowShadowsOpt" to="." method="_on_show_shadows_opt_option_selected"]
+[connection signal="pressed" from="UI/btnDefault" to="." method="_on_btn_default_pressed"]
+[connection signal="option_selected" from="UI/Tabs" to="." method="_on_tabs_option_selected"]
+
+[editable path="UI/TabContainer/GRAPHICS/ShowShadowsOpt"]
+[editable path="UI/Tabs"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxxslhay3rc6a"]
+
+[ext_resource type="Script" path="res://addons/tools25d/ActionMenu25D.gd" id="1_o6aps"]
+
+[node name="Menu" type="MenuButton"]
+text = "2.5D tools"
+switch_on_hover = true
+item_count = 3
+popup/item_0/text = "test"
+popup/item_0/id = 0
+popup/item_1/text = "test"
+popup/item_1/id = 1
+popup/item_2/text = "mesh"
+popup/item_2/id = 2
+script = ExtResource("1_o6aps")

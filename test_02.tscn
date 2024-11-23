@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://c13cnqycbwvwa"]
+
+[ext_resource type="Script" path="res://Script/test_02.gd" id="1_l326i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_56hcx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vgycu"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_l326i")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.766909, 2.4156)
+
+[node name="A" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.955085, 1.25196, 0)
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="A"]
+shape = SubResource("BoxShape3D_56hcx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="A"]
+mesh = SubResource("BoxMesh_vgycu")
+
+[node name="B" type="RigidBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.786454, 1.25196, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="B"]
+shape = SubResource("BoxShape3D_56hcx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="B"]
+mesh = SubResource("BoxMesh_vgycu")
+
+[node name="JoltHingeJoint3D" type="JoltHingeJoint3D" parent="."]
+limit_enabled = true
+limit_upper = 0.785398
+limit_lower = -0.872665
+node_a = NodePath("../A")
+node_b = NodePath("../B")
+transform = Transform3D(1, 0, 0, 0, 0.806135, -0.591732, 0, 0.591732, 0.806135, 0, 1.22876, 0)
+
+[node name="JoltHingeJoint3D2" type="JoltHingeJoint3D" parent="."]
+limit_enabled = true
+limit_upper = 0.261799
+node_b = NodePath("../A")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.07424, 1.28048, 0)

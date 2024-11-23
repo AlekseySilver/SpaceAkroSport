@@ -1,0 +1,120 @@
+[gd_scene load_steps=6 format=3 uid="uid://cc4m8d2ysb4qy"]
+
+[ext_resource type="PackedScene" uid="uid://c4hi0ylrwypj5" path="res://Scene/ScreenWithFader.tscn" id="1_alv02"]
+[ext_resource type="Script" path="res://Script/Scene/Menu/MainMenu.gd" id="1_rcx5s"]
+[ext_resource type="Texture2D" uid="uid://bu07xcn3mhxif" path="res://textures/bg_title.png" id="3_ky04q"]
+[ext_resource type="Script" path="res://Script/Scene/UI/DynFontSizeLabel.gd" id="4_144pi"]
+[ext_resource type="Script" path="res://Script/Scene/UI/DynFontSizeButton.gd" id="5_fnfsy"]
+
+[node name="MainMenu" instance=ExtResource("1_alv02")]
+script = ExtResource("1_rcx5s")
+
+[node name="TextureRect" type="TextureRect" parent="UI" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ky04q")
+
+[node name="Title" type="Label" parent="UI" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.114604
+anchor_top = 0.06
+anchor_right = 0.8965
+anchor_bottom = 0.185617
+offset_left = -0.0240021
+offset_top = 0.119999
+offset_right = 0.231934
+offset_bottom = -0.280014
+theme_override_font_sizes/font_size = 52
+text = "SPACEAKROSPORT"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_144pi")
+metadata/_edit_use_anchors_ = true
+
+[node name="btnPlay" type="Button" parent="UI" index="2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0572222
+anchor_top = 0.271975
+anchor_right = 0.389229
+anchor_bottom = 0.380703
+offset_left = 0.0800018
+offset_top = -0.240005
+offset_right = -0.392014
+offset_bottom = 0.304001
+focus_neighbor_top = NodePath("../btnQuit")
+focus_next = NodePath("../btnSettings")
+focus_previous = NodePath("../btnQuit")
+theme_override_font_sizes/font_size = 25
+text = "START_GAME"
+script = ExtResource("5_fnfsy")
+font_scale = 0.4
+metadata/_edit_use_anchors_ = true
+
+[node name="btnLanguage" type="Button" parent="UI" index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0572222
+anchor_top = 0.420123
+anchor_right = 0.389229
+anchor_bottom = 0.528851
+offset_left = 0.0800018
+offset_top = -0.23999
+offset_right = -0.392029
+offset_bottom = 0.304016
+focus_next = NodePath("../btnQuit")
+focus_previous = NodePath("../btnPlay")
+theme_override_font_sizes/font_size = 25
+text = "LANG"
+script = ExtResource("5_fnfsy")
+font_scale = 0.4
+metadata/_edit_use_anchors_ = true
+
+[node name="btnSettings" type="Button" parent="UI" index="4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0572222
+anchor_top = 0.568272
+anchor_right = 0.389229
+anchor_bottom = 0.677
+offset_left = 0.0800018
+offset_top = -0.240005
+offset_right = -0.392014
+offset_bottom = 0.304001
+focus_next = NodePath("../btnQuit")
+focus_previous = NodePath("../btnPlay")
+theme_override_font_sizes/font_size = 25
+text = "SETTINGS"
+script = ExtResource("5_fnfsy")
+font_scale = 0.4
+metadata/_edit_use_anchors_ = true
+
+[node name="btnQuit" type="Button" parent="UI" index="5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0572222
+anchor_top = 0.71642
+anchor_right = 0.389229
+anchor_bottom = 0.825148
+offset_left = 0.0800018
+offset_top = -0.240005
+offset_right = -0.392014
+offset_bottom = 0.304001
+focus_neighbor_bottom = NodePath("../btnPlay")
+focus_next = NodePath("../btnPlay")
+focus_previous = NodePath("../btnSettings")
+theme_override_font_sizes/font_size = 25
+text = "QUIT"
+script = ExtResource("5_fnfsy")
+font_scale = 0.4
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="UI/btnPlay" to="." method="_on_btn_play_pressed"]
+[connection signal="pressed" from="UI/btnLanguage" to="." method="_on_btn_language_pressed"]
+[connection signal="pressed" from="UI/btnSettings" to="." method="_on_btn_settings_pressed"]
+[connection signal="pressed" from="UI/btnQuit" to="." method="_on_btn_quit_pressed"]
